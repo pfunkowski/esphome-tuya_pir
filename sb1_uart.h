@@ -227,7 +227,7 @@ class SB1UARTComponent : public Component, public uart::UARTDevice {
 
     void setup() override {
       ESP_LOGCONFIG(TAG, "Setting up SB1 UART...");
-      this->rtc_ = global_preferences.make_preference<bool>(this->sensor_->get_object_id_hash());
+      this->rtc_ = global_preferences->make_preference<bool>(this->sensor_->get_object_id_hash());
       this->rtc_.load(&this->ota_mode_);
 
       if (!this->ota_mode_) {
